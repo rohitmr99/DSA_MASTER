@@ -1,14 +1,56 @@
 package Arrays;
 
 public class two_sum {
-	//brute-force approach:
-	//running 2 for loops --> (n**2, 1) even if the array is not sorted works in N**2.
 	
-	//better
-	// if the array is not sorted , sort the array and use 2 pointers, (NlogN,1).
+	/* TWO VARIANTS: 
+	 * 1. RETURN TRUE/FALSE
+	   2. to return the index of both the elements.
+		
+		brute-force approach:
+		running 2 for loops --> (n**2, 1) even if the array is not sorted works in N**2.
 	
-	//Optimal
-	//If the array is sorted, use 2 pointers, (N,1)
+		better approach:
+		if the array is not sorted , sort the array and use 2 pointers, (NlogN,1).
+		OR
+		use hashmap and push the value along with the index (N,N)
+	
+		**public static String twoSum(int n, int []arr, int target) {
+	        HashMap<Integer, Integer> mpp = new HashMap<>();
+	        for (int i = 0; i < n; i++) {
+	            int num = arr[i];
+	            int moreNeeded = target - num;
+	            if (mpp.containsKey(moreNeeded)) {
+	                return "YES";
+	            }
+	
+	            mpp.put(arr[i], i);
+	        }
+	        return "NO";
+	    }
+
+		**2nd approach:
+		
+		public static int[] twoSum(int n, int []arr, int target) {
+        int[] ans = new int[2];
+        ans[0] = ans[1] = -1;
+        HashMap<Integer, Integer> mpp = new HashMap<>();
+        for (int i = 0; i < n; i++) {
+            int num = arr[i];
+            int moreNeeded = target - num;
+            if (mpp.containsKey(moreNeeded)) {
+                ans[0] = mpp.get(moreNeeded);
+                ans[1] = i;
+                return ans;
+            }
+
+            mpp.put(arr[i], i);
+        }
+        return ans;
+    }
+		
+		**Optimal--approach
+		If the array is sorted, use 2 pointers, (N,1)
+	*/
 	
 	public static boolean checksum(int arr[], int target)
 	{
