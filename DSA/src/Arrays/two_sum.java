@@ -5,6 +5,8 @@ public class two_sum {
 	/* TWO VARIANTS: 
 	 * 1. RETURN TRUE/FALSE
 	   2. to return the index of both the elements.
+	   
+	link:https://takeuforward.org/data-structure/two-sum-check-if-a-pair-with-given-sum-exists-in-array/
 		
 		brute-force approach:
 		running 2 for loops --> (n**2, 1) even if the array is not sorted works in N**2.
